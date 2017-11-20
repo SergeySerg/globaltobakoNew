@@ -1,96 +1,391 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN">
-<html lang="{{ App::getLocale() }}" dir="ltr"
-	  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	  xmlns:dc="http://purl.org/dc/terms/"
-	  xmlns:foaf="http://xmlns.com/foaf/0.1/"
-	  xmlns:og="http://ogp.me/ns#"
-	  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	  xmlns:sioc="http://rdfs.org/sioc/ns#"
-	  xmlns:sioct="http://rdfs.org/sioc/types#"
-	  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-	  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-<head  profile="http://www.w3.org/1999/xhtml/vocab">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="alternate" type="application/rss+xml" title="Global Tobacco RSS" href="http://globaltobako.com/pl/rss.xml" />
+<!DOCTYPE HTML>
+<html lang="{{ App::getLocale() }}>
+<head>
 
-{{--
-	<title>	@if(count($seo)) {{ $seo[0]->getTranslate('meta_title') }} @else Global Tobacco1 @endif</title>
---}}
-{{--	<meta name="description" content="@if(isset($seo)){{ $seo{0}->getTranslate('meta_description') }} @else Табачні вироби @endif">
-	<meta name="keywords" content="@if(isset($seo)) {{ $seo{0}->getTranslate('meta_keywords') }} @else Табачні вироби різних сортів @endif">--}}
+     <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0, maximum-scale=1" />
+<title>index</title>
+
+<link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/libs.min.css') }}" />
+<link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/styles.css') }}" />
+
+</head>
 	<link rel="shortcut icon" href="{{ asset('/img/favicon/favicon.ico') }}" type="image/x-icon">
 	<link rel="apple-touch-icon" href="{{ asset('/img/favicon/apple-touch-icon.png') }}">
 	<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicon/apple-touch-icon-72x72.png') }}">
 	<link rel="apple-touch-icon" sizes="114x114" href="{{ asset('/img/favicon/apple-touch-icon-114x114.png') }}">
 
-	<link href="{{ asset('/css/frontend/theme.css') }}" rel="stylesheet" type="text/css" media="all">
-	<link href="{{ asset('/css/frontend/form_two.css') }}" rel="stylesheet" type="text/css" media="all" />
-	<link href="{{ asset('/css/frontend/form.css') }}" rel="stylesheet" type="text/css" media="all" />
-	<link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" media="all" />
-	<link href="{{ asset('/libs/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all" />
-	<link href="{{ asset('/libs/owl.theme.css') }}" rel="stylesheet" type="text/css" media="all" />
-	<link href="{{ asset('/css/frontend/main.css') }}" rel="stylesheet" type="text/css" media="all" />
+
 	<link href="{{ asset('/css/plugins/sweetalert.css') }}" rel="stylesheet">
 
-	<!-- HTML5 element support for IE6-8 -->
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
-	<script src="{{ asset('/js/frontend/jquery.js') }}"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-
-	<script src="{{ asset('/js/frontend/modernizr.js') }}"></script>
 
 </head>
-<body class="html front not-logged-in one-sidebar sidebar-first page-node i18n-pl" >
-	<div id="skip-link">
-		<a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
-	</div>
-	<div class="wrapper">
-		<header>
-			<h1 class="logo">
-				<a href="/pl" title="Home" rel="home"><span>Global</span><span> Tobacco</span></a>
-			</h1>
-			<div class="language-switcher">
-				<section id="block-locale-language" class="block block-locale clearfix">
-					<ul class="language-switcher-locale-url">
+<body>
 
-						@foreach($langs as $lang)
-							<li class="{{ $lang->lang }}@if(App::getLocale() == $lang->lang) active @endif"><a href="{{str_replace(url(App::getLocale()), url($lang->lang), Request::url())}}">{{$lang->lang}}</a></li>
-						@endforeach
 
-					</ul>
-				</section>
+<div class="total-container">
+
+
+	<!-- .header -->
+	<div class="header">
+
+		<div class="container">
+
+			<div class="header__text">
+				<span class="header__text-fon">GLOBAL TOBACCO</span>
+				<h2>GLOBAL TOBACCO</h2>
+				<h3>INTERNATIONAL</h3>
 			</div>
-		</header>
 
-			@yield('content')
+			<div class="header__address">
+				<ul>
+					<li><a class="address-phone" href="javascript:void(0)">0 800 500 8 500</a></li>
+					<li><span>Україна, Луцьк, вул. Вахтангова, 12 а.</span></li>
+					<li><a class="address-email" href="javascript:void(0)">info@globaltobako.com</a></li>
+				</ul>
+			</div>
 
-		<footer></footer>
+			<div class="container__row">
+
+				<div class="container__col">
+
+					<div class="logo"><a href="javascript:void(0)"><img src="{{ asset('/img/frontend/logo.png') }}" alt="logo" /></a></div>
+
+				</div>
+
+				<div class="container__col">
+
+					@include('frontend.menu')
+
+				</div>
+
+				<div class="container__col">
+
+					<div class="languages">
+						<span>{{ App::getLocale() }}</span>
+						<ul>
+							@foreach($langs as $lang)
+								<li @if(App::getLocale() == $lang->lang ) style="display: none" @endif><a href="{{str_replace(url(App::getLocale()), url($lang->lang), Request::url())}}">{{$lang->lang}}</a></li>
+							@endforeach
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="header__more"><span>Більше про нас</span></div>
+
+		<div class="inclined inclined--bottom inclined--colorBeige"></div>
+
+		<div class="mobileMenu">
+			<div class="mobileMenu__cont"></div>
+			<div class="mobileMenu__button">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+
+	</div>
+	<!-- END .header -->
+
+
+
+
+	<!-- .aboutUs-main -->
+	<div class="aboutUs-main">
+
+		<div class="container">
+
+			<span class="verticalText">ПРО НАС</span>
+			<span class="fonText">ПРО НАС</span>
+
+			<div class="container__row">
+
+				<div class="container__col">
+
+					<div class="presenBox">
+						<h2>GLOBAL TOBACCO</h2>
+						<h3>INTERNATIONAL</h3>
+						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики. Потужності виробництва дозволяють компанії надавати послуги з підготовки і переробки сировини. Сьогодні Глобал Тобако Інтернешнл активно розвиває цей напрямок і налагоджує зв’язки з новими клієнтами.</p>
+						<a class="button" href="javascript:void(0)">Детальніше</a>
+					</div>
+
+				</div>
+
+				<div class="container__col">
+
+					<ul class="aboutUs-main__photo">
+						<li><a href="javascript:void(0)"><img src="pictures/aboutUs-main/img-1.jpg" alt="img" /></a></li>
+						<li><a href="javascript:void(0)"><img src="pictures/aboutUs-main/img-2.jpg" alt="img" /></a></li>
+						<li><a href="javascript:void(0)"><img src="pictures/aboutUs-main/img-1.jpg" alt="img" /></a></li>
+					</ul>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- END .aboutUs-main -->
+
+
+
+
+	<!-- .inform -->
+	<div class="inform">
+
+		<div class="container">
+
+			<span class="verticalText">ПЕРЕВАГИ</span>
+
+			<div class="container__row">
+
+				<div class="container__col">
+
+					<div class="inform__box">
+						<div class="inform__icon inform__icon--people"></div>
+						<h3>ІННОВАЦІЇ</h3>
+						<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+					</div>
+
+				</div>
+
+				<div class="container__col">
+
+					<div class="inform__box">
+						<div class="inform__icon inform__icon--people"></div>
+						<h3>ІННОВАЦІЇ</h3>
+						<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+					</div>
+
+				</div>
+
+				<div class="container__col">
+
+					<div class="inform__box">
+						<div class="inform__icon inform__icon--people"></div>
+						<h3>ІННОВАЦІЇ</h3>
+						<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="informSlider">
+			<div class="informSlider__box">
+				<div class="inform__box">
+					<div class="inform__icon inform__icon--people"></div>
+					<h3>ІННОВАЦІЇ</h3>
+					<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+				</div>
+			</div>
+			<div class="informSlider__box">
+				<div class="inform__box">
+					<div class="inform__icon inform__icon--people"></div>
+					<h3>ІННОВАЦІЇ</h3>
+					<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+				</div>
+			</div>
+			<div class="informSlider__box">
+				<div class="inform__box">
+					<div class="inform__icon inform__icon--people"></div>
+					<h3>ІННОВАЦІЇ</h3>
+					<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- END .inform -->
+
+
+
+
+	<!-- .production-main -->
+	<div class="production-main">
+
+		<div class="container">
+
+			<span class="verticalText">ПРОДУКЦІЯ</span>
+			<span class="fonText">ПРОДУКЦІЯ</span>
+
+			<div class="container__row">
+
+				<div class="container__col">
+
+					<div class="prodBox">
+						<div class="prodBox__substrate"><img src="pictures/substrate/img-1.jpg" alt="img" /></div>
+						<h3>GLOBAL TOBACCO</h3>
+						<h4>INTERNATIONAL</h4>
+						<img src="pictures/production/img-1.png" alt="img" />
+						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
+					</div>
+
+				</div>
+
+				<div class="container__col">
+
+					<div class="prodBox">
+						<div class="prodBox__substrate"><img src="pictures/substrate/img-2.jpg" alt="img" /></div>
+						<h3>GLOBAL TOBACCO</h3>
+						<h4>INTERNATIONAL</h4>
+						<img src="pictures/production/img-1.png" alt="img" />
+						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- END .production-main -->
+
+
+
+
+	<!-- .partners-main -->
+	<div class="partners-main">
+
+		<div class="inclined inclined--top inclined--colorBeige"></div>
+		<div class="inclined inclined--bottom inclined--colorWhite"></div>
+
+		<div class="container">
+
+			<span class="verticalText verticalText--white">ПАРТНЕРАМ</span>
+
+			<div class="presenBox presenBox--white">
+				<h2>GLOBAL TOBACCO</h2>
+				<h3>INTERNATIONAL</h3>
+				<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики. </p>
+				<a class="button" href="javascript:void(0)">Детальніше</a>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- END .partners-main -->
+
+
+
+
+	<!-- .disposition -->
+	<div class="disposition disposition--weAreOpen">
+
+		<div class="container">
+
+			<span class="verticalText">МИ ВІДКРИТІ</span>
+
+			<div class="container__row">
+
+				<div class="container__col">
+
+					<div class="presenBox">
+						<h2>GLOBAL TOBACCO</h2>
+						<h3>INTERNATIONAL</h3>
+						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
+					</div>
+
+				</div>
+
+				<div class="container__col">
+
+					<div class="disposition__map"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- END .disposition -->
+
+
+
+
+
+	<div class="hFooter"></div>
+
+</div>
+
+
+
+
+
+<!-- .footer -->
+<footer class="footer">
+
+	<div class="container">
+
+		<div class="container__row">
+
+			<div class="container__col">
+
+				<div class="footer-logo"><a href="javascript:void(0)"><img src="{{ asset('/img/frontend/logo.png') }}" alt="logo" /></a></div>
+
+			</div>
+
+			<div class="container__col">
+
+				@include('frontend.menu')
+
+			</div>
+
+			<div class="container__col">
+
+				<ul class="feedback">
+					<li><a class="fb-phone" href="javascript:void(0)">0 800 500 8 500</a></li>
+					<li><a class="fb-email" href="javascript:void(0)">info@globaltobako.com</a></li>
+				</ul>
+
+			</div>
+
+		</div>
+
 	</div>
 
+	<div class="footer-bottom">
+
+		<div class="container">
+
+			<span class="footer-info">2017 © Global Tobacco International</span>
+
+		</div>
+
+	</div>
+
+</footer>
+<!-- END .footer -->
 {{--Файл переводов--}}
-	<script>
-		var trans = {
-			'base.success': '{{ trans('base.success_send_contact') }}',
-			'base.error': '{{ trans('base.error_send_contact') }}',
-		};
-	</script>
+<script>
+	var trans = {
+		'base.success': '{{ trans('base.success_send_contact') }}',
+		'base.error': '{{ trans('base.error_send_contact') }}',
+	};
+</script>
 {{--/Файл переводов--}}
 {{-- JS --}}
 
-	<script src="{{ asset('/js/plugins/sweetalert.min.js') }}"></script>
-	<script src="{{ asset('/js/frontend/bootstrap.js') }}"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYcm7rpoj87BtQPk8Q4TjddJQxcLx71mk"></script>
-	<script src="{{ asset('/js/frontend/jquery.parallax.js') }}"></script>
-	<script src="{{ asset('/libs/owl.carousel.min.js') }}"></script>
-	<script src="{{ asset('/js/frontend/config.js') }}"></script>
-	<script src="{{ asset('/js/frontend/common.js') }}"></script>
+<script src="{{ asset('/js/plugins/sweetalert.min.js') }}"></script>
+<script src="{{ asset('/js/frontend/jquery.min.js') }}"></script>
+<script src="{{ asset('/js/frontend/libs.min.js') }}"></script>
+<script src="{{ asset('/js/frontend/main.js') }}"></script>
 
 {{-- /JS --}}
+
 </body>
 </html>
+
+
