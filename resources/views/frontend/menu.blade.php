@@ -1,25 +1,23 @@
 
 <ul class="menu">
-    <li class="active"><a href="javascript:void(0)">Головна</a></li>
-    <li><a href="javascript:void(0)">Про компанію</a></li>
-    <li><a href="javascript:void(0)">Продукція</a></li>
-    <li><a href="javascript:void(0)">Партнерам</a></li>
-    <li><a href="javascript:void(0)">Контакти</a></li>
+
+    @if($categories_data['main']->active == 1)
+        <li @if(Request::is(App::getLocale())) class="active" @endif><a href="/{{ App::getLocale() }}">{{ $categories_data['main']->getTranslate('title') }}</a></li>
+    @endif
+
+    @if($categories_data['about']->active == 1)
+        <li @if(Request::is('*/about'))) class="active" @endif><a href="/{{ App::getLocale() }}/about">{{ $categories_data['about']->getTranslate('title') }}</a></li>
+    @endif
+
+    @if($categories_data['products']->active == 1)
+        <li @if(Request::is('*/about'))) class="active" @endif><a href="/{{ App::getLocale() }}/products">{{ $categories_data['products']->getTranslate('title') }}</a></li>
+    @endif
+
+    @if($categories_data['partners']->active == 1)
+        <li @if(Request::is('*/products'))) class="active" @endif><a href="/{{ App::getLocale() }}/partners">{{ $categories_data['partners']->getTranslate('title') }}</a></li>
+    @endif
+
+    @if($categories_data['contact']->active == 1)
+        <li @if(Request::is('*/contact'))) class="active" @endif><a href="/{{ App::getLocale() }}/contact">{{ $categories_data['contact']->getTranslate('title') }}</a></li>
+    @endif
 </ul>
-{{--Item Menu--}}
-{{--@if($categories_data['about']->active == 1)--}}
-    {{--<li><a class="r-menu-link" data-scroll-id="about-us" href="/{{ App::getLocale() }}#about-us">{{ $categories_data['about']->getTranslate('title') }}</a></li>--}}
-{{--@endif--}}
-
-{{--<li><a class="r-menu-link" data-scroll-id="prices" href="/{{ App::getLocale() }}#prices">{{ $categories_data['price']->getTranslate('title') }}</a></li>--}}
-
-{{--@if( count($download) !== 0 AND $categories_data['download']->active == 1)--}}
-    {{--<li><a class="r-menu-link" data-scroll-id="download" href="/{{ App::getLocale() }}#download">{{ $categories_data['download']->getTranslate('title') }}</a></li>--}}
-{{--@endif--}}
-
-{{--<li><a class="r-menu-link" href="/{{ App::getLocale() }}/payment">{{ $texts->get('recharge') }}</a></li>--}}
-
-{{--@if(count($contact) !== 0 AND $categories_data['contact']->active == 1)--}}
-    {{--<li><a class="r-menu-link" data-scroll-id="contacts" href="/{{ App::getLocale() }}#contacts">{{ $categories_data['contact']->getTranslate('title') }}</a></li>--}}
-{{--@endif--}}
-{{--/Item Menu--}}

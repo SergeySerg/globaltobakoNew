@@ -20,6 +20,7 @@ return [
 	'send' => 'Отправить',
 	'more' => 'Больше о нас',
 	'email' => 'E-mail',
+	'detale' => 'Подробнее',
 
 	/* Script Contact*/
 	'success_send_contact' => 'Ваша заявка успешно отправлена!',

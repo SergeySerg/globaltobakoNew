@@ -24,7 +24,6 @@
 </head>
 <body>
 
-
 <div class="total-container">
 
 
@@ -34,16 +33,15 @@
 		<div class="container">
 
 			<div class="header__text">
-				<span class="header__text-fon">GLOBAL TOBACCO</span>
-				<h2>GLOBAL TOBACCO</h2>
-				<h3>INTERNATIONAL</h3>
+				<span class="header__text-fon">{{ $main[0]->getTranslate('title')? $main[0]->getTranslate('title') : 'GLOBAL TOBACCO' }}</span>
+				{!! $main[0]->getTranslate('short_description') ? $main[0]->getTranslate('short_description') : '<h2>GLOBAL TOBACCO</h2><h3>INTERNATIONAL</h3>' !!}
 			</div>
 
 			<div class="header__address">
 				<ul>
-					<li><a class="address-phone" href="javascript:void(0)">0 800 500 8 500</a></li>
-					<li><span>Україна, Луцьк, вул. Вахтангова, 12 а.</span></li>
-					<li><a class="address-email" href="javascript:void(0)">info@globaltobako.com</a></li>
+					<li><a class="address-phone">{{ $texts->get('phone') }}</a></li>
+					<li><span>{{ $texts->get('address') }}</span></li>
+					<li><a class="address-email" href="mailto:{{ $texts->get('email') }}">{{ $texts->get('email') }}</a></li>
 				</ul>
 			</div>
 
@@ -51,7 +49,7 @@
 
 				<div class="container__col">
 
-					<div class="logo"><a href="javascript:void(0)"><img src="{{ asset('/img/frontend/logo.png') }}" alt="logo" /></a></div>
+					<div class="logo"><a href="/{{ App::getLocale() }}"><img src="{{ $main[0]->getAttributeTranslate('Логотип') ? $main[0]->getAttributeTranslate('Логотип') : asset("/img/frontend/logo.png") }}" alt="logo" /></a></div>
 
 				</div>
 
@@ -78,7 +76,7 @@
 
 		</div>
 
-		<div class="header__more"><span>Більше про нас</span></div>
+		<div class="header__more"><span>{{ trans('base.more') }}</span></div>
 
 		<div class="inclined inclined--bottom inclined--colorBeige"></div>
 
@@ -94,235 +92,11 @@
 	</div>
 	<!-- END .header -->
 
-
-
-
-	<!-- .aboutUs-main -->
-	<div class="aboutUs-main">
-
-		<div class="container">
-
-			<span class="verticalText">ПРО НАС</span>
-			<span class="fonText">ПРО НАС</span>
-
-			<div class="container__row">
-
-				<div class="container__col">
-
-					<div class="presenBox">
-						<h2>GLOBAL TOBACCO</h2>
-						<h3>INTERNATIONAL</h3>
-						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики. Потужності виробництва дозволяють компанії надавати послуги з підготовки і переробки сировини. Сьогодні Глобал Тобако Інтернешнл активно розвиває цей напрямок і налагоджує зв’язки з новими клієнтами.</p>
-						<a class="button" href="javascript:void(0)">Детальніше</a>
-					</div>
-
-				</div>
-
-				<div class="container__col">
-
-					<ul class="aboutUs-main__photo">
-						<li><a href="javascript:void(0)"><img src="pictures/aboutUs-main/img-1.jpg" alt="img" /></a></li>
-						<li><a href="javascript:void(0)"><img src="pictures/aboutUs-main/img-2.jpg" alt="img" /></a></li>
-						<li><a href="javascript:void(0)"><img src="pictures/aboutUs-main/img-1.jpg" alt="img" /></a></li>
-					</ul>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-	<!-- END .aboutUs-main -->
-
-
-
-
-	<!-- .inform -->
-	<div class="inform">
-
-		<div class="container">
-
-			<span class="verticalText">ПЕРЕВАГИ</span>
-
-			<div class="container__row">
-
-				<div class="container__col">
-
-					<div class="inform__box">
-						<div class="inform__icon inform__icon--people"></div>
-						<h3>ІННОВАЦІЇ</h3>
-						<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-					</div>
-
-				</div>
-
-				<div class="container__col">
-
-					<div class="inform__box">
-						<div class="inform__icon inform__icon--people"></div>
-						<h3>ІННОВАЦІЇ</h3>
-						<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-					</div>
-
-				</div>
-
-				<div class="container__col">
-
-					<div class="inform__box">
-						<div class="inform__icon inform__icon--people"></div>
-						<h3>ІННОВАЦІЇ</h3>
-						<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-		<div class="informSlider">
-			<div class="informSlider__box">
-				<div class="inform__box">
-					<div class="inform__icon inform__icon--people"></div>
-					<h3>ІННОВАЦІЇ</h3>
-					<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-				</div>
-			</div>
-			<div class="informSlider__box">
-				<div class="inform__box">
-					<div class="inform__icon inform__icon--people"></div>
-					<h3>ІННОВАЦІЇ</h3>
-					<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-				</div>
-			</div>
-			<div class="informSlider__box">
-				<div class="inform__box">
-					<div class="inform__icon inform__icon--people"></div>
-					<h3>ІННОВАЦІЇ</h3>
-					<p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-				</div>
-			</div>
-		</div>
-
-	</div>
-	<!-- END .inform -->
-
-
-
-
-	<!-- .production-main -->
-	<div class="production-main">
-
-		<div class="container">
-
-			<span class="verticalText">ПРОДУКЦІЯ</span>
-			<span class="fonText">ПРОДУКЦІЯ</span>
-
-			<div class="container__row">
-
-				<div class="container__col">
-
-					<div class="prodBox">
-						<div class="prodBox__substrate"><img src="pictures/substrate/img-1.jpg" alt="img" /></div>
-						<h3>GLOBAL TOBACCO</h3>
-						<h4>INTERNATIONAL</h4>
-						<img src="pictures/production/img-1.png" alt="img" />
-						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
-					</div>
-
-				</div>
-
-				<div class="container__col">
-
-					<div class="prodBox">
-						<div class="prodBox__substrate"><img src="pictures/substrate/img-2.jpg" alt="img" /></div>
-						<h3>GLOBAL TOBACCO</h3>
-						<h4>INTERNATIONAL</h4>
-						<img src="pictures/production/img-1.png" alt="img" />
-						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-	<!-- END .production-main -->
-
-
-
-
-	<!-- .partners-main -->
-	<div class="partners-main">
-
-		<div class="inclined inclined--top inclined--colorBeige"></div>
-		<div class="inclined inclined--bottom inclined--colorWhite"></div>
-
-		<div class="container">
-
-			<span class="verticalText verticalText--white">ПАРТНЕРАМ</span>
-
-			<div class="presenBox presenBox--white">
-				<h2>GLOBAL TOBACCO</h2>
-				<h3>INTERNATIONAL</h3>
-				<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики. </p>
-				<a class="button" href="javascript:void(0)">Детальніше</a>
-			</div>
-
-		</div>
-
-	</div>
-	<!-- END .partners-main -->
-
-
-
-
-	<!-- .disposition -->
-	<div class="disposition disposition--weAreOpen">
-
-		<div class="container">
-
-			<span class="verticalText">МИ ВІДКРИТІ</span>
-
-			<div class="container__row">
-
-				<div class="container__col">
-
-					<div class="presenBox">
-						<h2>GLOBAL TOBACCO</h2>
-						<h3>INTERNATIONAL</h3>
-						<p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
-					</div>
-
-				</div>
-
-				<div class="container__col">
-
-					<div class="disposition__map"></div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-	<!-- END .disposition -->
-
-
-
-
+	@yield('content')
 
 	<div class="hFooter"></div>
 
 </div>
-
-
-
-
 
 <!-- .footer -->
 <footer class="footer">
@@ -333,7 +107,7 @@
 
 			<div class="container__col">
 
-				<div class="footer-logo"><a href="javascript:void(0)"><img src="{{ asset('/img/frontend/logo.png') }}" alt="logo" /></a></div>
+				<div class="footer-logo"><a href="javascript:void(0)"><img src="{{ $main[0]->getAttributeTranslate('Логотип') ? $main[0]->getAttributeTranslate('Логотип') : asset("/img/frontend/logo.png") }}" alt="logo" /></a></div>
 
 			</div>
 
@@ -346,8 +120,8 @@
 			<div class="container__col">
 
 				<ul class="feedback">
-					<li><a class="fb-phone" href="javascript:void(0)">0 800 500 8 500</a></li>
-					<li><a class="fb-email" href="javascript:void(0)">info@globaltobako.com</a></li>
+					<li><a class="fb-phone">{{ $texts->get('phone') }}</a></li>
+					<li><a class="fb-email" href="mailto:{{ $texts->get('email') }}">{{ $texts->get('email') }}</a></li>
 				</ul>
 
 			</div>

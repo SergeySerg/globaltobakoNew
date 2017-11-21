@@ -19,6 +19,8 @@ return [
 	'send' => 'Wysłać',
 	'email' => 'E-mail',
 	'more' => 'Więcej o nas',
+	'detale' => 'Przeczytaj więcej',
+
 	/* Script Contact*/
 	'success_send_contact' => 'Twoja aplikacja została pomyślnie wysłana!',
 	'error_send_contact' => 'Podczas wysyłania aplikacji wystąpił błąd!',
