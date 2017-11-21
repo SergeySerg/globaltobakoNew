@@ -20,6 +20,7 @@ return [
 	'email' => 'E-mail',
 	'more' => 'More about us',
 	'detale' => 'Read more',
+	'company' => "Company",
 
 	/* Script Contact*/
 	'success_send_contact' => 'Your application was successfully sent!',

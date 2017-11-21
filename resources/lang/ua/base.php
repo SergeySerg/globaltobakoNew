@@ -19,6 +19,7 @@ return [
 	'more' => 'Більше про нас',
 	'email' => 'E-mail',
 	'detale' => 'Детальніше',
+	'company' => "Компанії",
 
 	/* Script Contact*/
 	'success_send_contact' => 'Ваша заявка успішно відправлена!',

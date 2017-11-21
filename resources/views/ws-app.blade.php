@@ -2,10 +2,20 @@
 <html lang="{{ App::getLocale() }}>
 <head>
 
-     <meta charset="utf-8">
+<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0, maximum-scale=1" />
-<title>index</title>
+
+<title>
+	@if($categories_data[$type]->getTranslate('meta_title'))
+		{{ $categories_data[$type]->getTranslate('meta_title') }}
+	@else
+		GLOBAL TOBACCO INTERNATIONAL
+	@endif
+</title>
+<meta name="description" content="@if($categories_data[$type]->getTranslate('meta_description')){{ $categories_data[$type]->getTranslate('meta_description') }} @else Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.@endif">
+<meta name="keywords" content="@if($categories_data[$type]->getTranslate('meta_keywords')){{ $categories_data[$type]->getTranslate('meta_keywords') }} @else GLOBAL TOBACCO @endif">
+
 
 <link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/libs.min.css') }}" />
 <link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/styles.css') }}" />
@@ -26,6 +36,7 @@
 
 <div class="total-container">
 
+@if($type == 'main')
 
 	<!-- .header -->
 	<div class="header">
@@ -45,34 +56,7 @@
 				</ul>
 			</div>
 
-			<div class="container__row">
-
-				<div class="container__col">
-
-					<div class="logo"><a href="/{{ App::getLocale() }}"><img src="{{ $main[0]->getAttributeTranslate('Логотип') ? $main[0]->getAttributeTranslate('Логотип') : asset("/img/frontend/logo.png") }}" alt="logo" /></a></div>
-
-				</div>
-
-				<div class="container__col">
-
-					@include('frontend.menu')
-
-				</div>
-
-				<div class="container__col">
-
-					<div class="languages">
-						<span>{{ App::getLocale() }}</span>
-						<ul>
-							@foreach($langs as $lang)
-								<li @if(App::getLocale() == $lang->lang ) style="display: none" @endif><a href="{{str_replace(url(App::getLocale()), url($lang->lang), Request::url())}}">{{$lang->lang}}</a></li>
-							@endforeach
-						</ul>
-					</div>
-
-				</div>
-
-			</div>
+			@include('frontend.bottom_header')
 
 		</div>
 
@@ -91,7 +75,11 @@
 
 	</div>
 	<!-- END .header -->
+	@else
 
+	@include('frontend.header')
+
+@endif
 	@yield('content')
 
 	<div class="hFooter"></div>
@@ -107,7 +95,7 @@
 
 			<div class="container__col">
 
-				<div class="footer-logo"><a href="javascript:void(0)"><img src="{{ $main[0]->getAttributeTranslate('Логотип') ? $main[0]->getAttributeTranslate('Логотип') : asset("/img/frontend/logo.png") }}" alt="logo" /></a></div>
+				<div class="footer-logo"><a href="/{{ App::getLocale() }}"><img src="/{{ $main[0]->getAttributeTranslate('Логотип') ? $main[0]->getAttributeTranslate('Логотип') : asset("/img/frontend/logo.png") }}" alt="logo" /></a></div>
 
 			</div>
 

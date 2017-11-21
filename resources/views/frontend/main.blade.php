@@ -8,7 +8,7 @@
 
         <div class="container">
 
-            <span class="verticalText">{{ $categories_data['about']->getTranslate('title') ? $categories_data['about']->getTranslate('title') : '' }}</span>
+            <span class="verticalText">{{ $categories_data['about']->getTranslate('title') ? $categories_data['about']->getTranslate('title') : 'Про компанію' }}</span>
             <span class="fonText">{{ $categories_data['about']->getTranslate('title') }}</span>
 
             <div class="container__row">
@@ -48,13 +48,13 @@
 
         <div class="container">
 
-            <span class="verticalText">{{ $categories_data['advantages']->getTranslate('title') ? $categories_data['advantages']->getTranslate('title') : '' }}</span>
+            <span class="verticalText">{{ $categories_data['advantages']->getTranslate('title') ? $categories_data['advantages']->getTranslate('title') : 'ПЕРЕВАГИ' }}</span>
 
             <div class="container__row">
 
                 @foreach($advantages as $advantage)
 
-                    <div class="container__col">
+                <div class="container__col">
 
                     <div class="inform__box">
                         <div class="inform__icon inform__icon--people"></div>
@@ -72,27 +72,15 @@
         </div>
 
         <div class="informSlider">
-            <div class="informSlider__box">
+            @foreach($advantages as $advantage)
+                <div class="informSlider__box">
                 <div class="inform__box">
                     <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+                    <h3>{{ $advantage->getTranslate('title') }}</h3>
+                    {!! $advantage->getTranslate('short_description') !!}
                 </div>
             </div>
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-                </div>
-            </div>
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     </div>
@@ -100,37 +88,86 @@
 @endif
 
 
+@if(isset($directions) AND count($directions) !== 0 AND $categories_data['directions']->active == 1 AND $categories_data['products']->active == 1)
+    <!-- .production-main -->
+    <div class="production-main">
 
-<!-- .production-main -->
-<div class="production-main">
+        <div class="container">
 
-    <div class="container">
+            <span class="verticalText">{{ $categories_data['products']->getTranslate('title') ? $categories_data['products']->getTranslate('title') : 'ПРОДУКЦІЯ' }}</span>
+            <span class="fonText">{{ $categories_data['products']->getTranslate('title') ? $categories_data['products']->getTranslate('title') : 'ПРОДУКЦІЯ' }}</span>
 
-        <span class="verticalText">ПРОДУКЦІЯ</span>
-        <span class="fonText">ПРОДУКЦІЯ</span>
+            <div class="container__row">
 
-        <div class="container__row">
+                @foreach($directions as $direction)
+                    <div class="container__col">
 
-            <div class="container__col">
+                        <div class="prodBox">
+                            <div class="prodBox__substrate"><img src="{{ $direction->getAttributeTranslate('Фон') ? $direction->getAttributeTranslate('Фон') : asset("pictures/substrate/img-1.jpg") }}" alt="GLOBAL TOBACCO" /></div>
+                            {!! $direction->getTranslate('title') !!}
+                            <img src="{{ $direction->getAttributeTranslate('Картинка продукту') ? $direction->getAttributeTranslate('Картинка продукту') : asset("pictures/production/img-1.png") }}" alt="GLOBAL TOBACCO" />
+                            {!! $direction->getTranslate('short_description') !!}
+                        </div>
 
-                <div class="prodBox">
-                    <div class="prodBox__substrate"><img src="pictures/substrate/img-1.jpg" alt="img" /></div>
-                    <h3>GLOBAL TOBACCO</h3>
-                    <h4>INTERNATIONAL</h4>
-                    <img src="pictures/production/img-1.png" alt="img" />
-                    <p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
-                </div>
+                    </div>
+                @endforeach
 
             </div>
 
-            <div class="container__col">
+        </div>
 
-                <div class="prodBox">
-                    <div class="prodBox__substrate"><img src="pictures/substrate/img-2.jpg" alt="img" /></div>
-                    <h3>GLOBAL TOBACCO</h3>
-                    <h4>INTERNATIONAL</h4>
-                    <img src="pictures/production/img-1.png" alt="img" />
-                    <p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
+    </div>
+    <!-- END .production-main -->
+@endif
+
+
+@if(isset($partners) AND count($partners) !== 0 AND $categories_data['partners']->active == 1)
+
+    <!-- .partners-main -->
+    <div class="partners-main">
+
+        <div class="inclined inclined--top inclined--colorBeige"></div>
+        <div class="inclined inclined--bottom inclined--colorWhite"></div>
+
+        <div class="container">
+
+            <span class="verticalText verticalText--white">{{ $categories_data['partners']->getTranslate('title') ? $categories_data['partners']->getTranslate('title') : 'ПАРТНЕРАМ' }}</span>
+
+            <div class="presenBox presenBox--white">
+                {!! $partners[0]->getTranslate('title') !!}
+                {!! $partners[0]->getTranslate('short_description') !!}
+                <a class="button" href="/{{ App::getLocale() }}/partners">{{ trans('base.detale') }}</a>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- END .partners-main -->
+@endif
+
+
+@if(isset($opened) AND count($opened) !== 0 AND $categories_data['opened']->active == 1)
+    <!-- .disposition -->
+    <div class="disposition disposition--weAreOpen">
+
+        <div class="container">
+
+            <span class="verticalText">{{ $categories_data['opened']->getTranslate('title') ? $categories_data['opened']->getTranslate('title') : 'Ми ВІДКРИТІ' }}</span>
+
+            <div class="container__row">
+
+                <div class="container__col">
+
+                    <div class="presenBox">
+                        {!! $opened[0]->getTranslate('title') !!}
+                        {!! $opened[0]->getTranslate('short_description') !!}                    </div>
+
+                </div>
+
+                <div class="container__col">
+
+                    <div class="disposition__map"></div>
+
                 </div>
 
             </div>
@@ -138,68 +175,6 @@
         </div>
 
     </div>
-
-</div>
-<!-- END .production-main -->
-
-
-
-
-<!-- .partners-main -->
-<div class="partners-main">
-
-    <div class="inclined inclined--top inclined--colorBeige"></div>
-    <div class="inclined inclined--bottom inclined--colorWhite"></div>
-
-    <div class="container">
-
-        <span class="verticalText verticalText--white">ПАРТНЕРАМ</span>
-
-        <div class="presenBox presenBox--white">
-            <h2>GLOBAL TOBACCO</h2>
-            <h3>INTERNATIONAL</h3>
-            <p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики. </p>
-            <a class="button" href="javascript:void(0)">Детальніше</a>
-        </div>
-
-    </div>
-
-</div>
-<!-- END .partners-main -->
-
-
-
-
-<!-- .disposition -->
-<div class="disposition disposition--weAreOpen">
-
-    <div class="container">
-
-        <span class="verticalText">МИ ВІДКРИТІ</span>
-
-        <div class="container__row">
-
-            <div class="container__col">
-
-                <div class="presenBox">
-                    <h2>GLOBAL TOBACCO</h2>
-                    <h3>INTERNATIONAL</h3>
-                    <p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
-                </div>
-
-            </div>
-
-            <div class="container__col">
-
-                <div class="disposition__map"></div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- END .disposition -->
-
+    <!-- END .disposition -->
+@endif
 @endsection
