@@ -13,8 +13,8 @@ return [
 	|
 	*/
 
-	'contacts' => 'Свяжитесь с нами',
-	'name' => 'Ваше имя',
+	'contacts' => 'Связатьсь с нами',
+	'name' => 'Имя',
 	'questions' => 'Ваши вопросы и предложения',
 	'our_contacts' => 'Наши контакты',
 	'send' => 'Отправить',
@@ -22,6 +22,12 @@ return [
 	'email' => 'E-mail',
 	'detale' => 'Подробнее',
 	'company' => "Компании",
+	'directions' => "Производства",
+	'order' => "Заказать",
+	'more_detale' => 'Узнать больше',
+	"text" => "Текст сообщения",
+	'require_field' => "Заполните все поля",
+
 
 	/* Script Contact*/
 	'success_send_contact' => 'Ваша заявка успешно отправлена!',

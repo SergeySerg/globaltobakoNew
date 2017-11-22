@@ -7,7 +7,6 @@
 
     <div class="container">
 
-        <span class="fonText">{{ $categories_data['products']->getTranslate('title') ? $categories_data['products']->getTranslate('title') : 'ПРОДУКЦІЯ' }}</span>
 
         <div class="container__row">
 
@@ -70,50 +69,16 @@
 
         </div>
 
-        {{--<div class="informSlider">
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
+        <div class="informSlider">
+            @foreach($advantages as $advantage)
+                <div class="informSlider__box">
+                    <div class="inform__box">
+                        <div class="inform__icon inform__icon--people"></div>
+                        <h3>{{ $advantage->getTranslate('title') }}</h3>
+                        {!! $advantage->getTranslate('short_description') !!}                    </div>
                 </div>
-            </div>
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-                </div>
-            </div>
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-                </div>
-            </div>
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-                </div>
-            </div>
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-                </div>
-            </div>
-            <div class="informSlider__box">
-                <div class="inform__box">
-                    <div class="inform__icon inform__icon--people"></div>
-                    <h3>ІННОВАЦІЇ</h3>
-                    <p>Компанія GLOBAL TOBACO широко визнана в усьому світі як інноваційний лідер своєї галузі.</p>
-                </div>
-            </div>
-        </div>--}}
+            @endforeach
+        </div>
 
     </div>
     <!-- END .inform -->

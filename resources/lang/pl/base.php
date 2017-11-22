@@ -21,6 +21,11 @@ return [
 	'more' => 'Więcej o nas',
 	'detale' => 'Przeczytaj więcej',
 	'company' => "Firmu",
+	'directions' => "Produkcji",
+	'order' => "Zamówienie",
+	'more_detale' => 'Dowiedz się więcej',
+	"text" => "Tekst wiadomości",
+	'require_field' => "Wypełnij wszystkie pola",
 
 	/* Script Contact*/
 	'success_send_contact' => 'Twoja aplikacja została pomyślnie wysłana!',
