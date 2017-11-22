@@ -2496,6 +2496,7 @@ input.button {
   margin: auto;
 }
 .boardsSlider__box img {
+  width: 97px;
   position: relative;
   display: inline-block;
   vertical-align: top;

@@ -125,7 +125,7 @@
 
                         <div class="boardsSlider">
                             @foreach($direction -> getImages() as $imgDirectionProduct)
-                                <div class="boardsSlider__box"><span><a href="javascript:void(0)"><img src="/{{ $imgDirectionProduct['full'] }}" alt="img" /></a></span></div>
+                                <div class="boardsSlider__box"><span><a href="javascript:void(0)"><img src="/{{ $imgDirectionProduct['min'] }}" alt="img" /></a></span></div>
                             @endforeach
 
                         </div>

@@ -18,7 +18,7 @@
 
 
 <link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/libs.min.css') }}" />
-<link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/styles.css') }}" />
+<link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/styles.css') }}?ver={{ $version }}" />
 
 </head>
 	<link rel="shortcut icon" href="{{ asset('/img/favicon/favicon.ico') }}" type="image/x-icon">
