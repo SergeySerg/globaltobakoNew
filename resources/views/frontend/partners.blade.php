@@ -16,7 +16,7 @@
                 <div class="presenBox">
                     {!! $partners[0]->getTranslate('title') !!}
                     {!! $partners[0]->getTranslate('description') !!}
-                    <a class="button" href="javascript:void(0)">{{ trans('base.more_detale') }}</a>
+                    <a class="button" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0)">{{ trans('base.more_detale') }}</a>
                 </div>
 
             </div>

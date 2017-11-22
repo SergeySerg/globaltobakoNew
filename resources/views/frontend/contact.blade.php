@@ -28,7 +28,7 @@
 
             <div class="container__col">
 
-                <form class="contForm" id="callback" method="post">
+                <form class="contForm" id="callback">
                     <h3>{{ trans('base.contacts') }}</h3>
                     <p>{{ trans('base.require_field') }}</p>
 
@@ -38,7 +38,7 @@
                         <div class="contForm__box"><textarea required name="text" placeholder="{{ trans('base.text') }}"></textarea></div>
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     </div>
-
+                    <input type="hidden" name="url" value="/{{ App::getLocale() }}/{{ $type }}"/>
                     <button id="submit-send" class="button">{{ trans('base.send') }}</button>
 
                 </form>

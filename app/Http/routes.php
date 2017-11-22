@@ -95,7 +95,7 @@ Route::group(['prefix'=>'adminDa6jo', 'middleware' => ['auth', 'backend.init']],
 /*Frontend group routes*/
 Route::group(['middleware' => 'frontend.init'], function(){
 	/*Callback group route*/
-	Route::post('/{lang}/contact', ['uses' => 'Frontend\ArticleController@contact','as' => 'contact']);//Обработчик Обратной связи
+	Route::post('/{lang}/{type}', ['uses' => 'Frontend\ArticleController@contact','as' => 'contact']);//Обработчик Обратной связи
 	Route::get('/{lang}/{type?}', ['uses' => 'Frontend\ArticleController@index', 'as' => 'article_index']);
 	Route::get('/{lang}/{type}/{id}', ['uses' => 'Frontend\ArticleController@show', 'as' => 'article_show']);
 

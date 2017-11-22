@@ -116,7 +116,7 @@
                         <div class="presenBox presenBox--white">
                             {!! $direction->getTranslate('title') !!}
                             {!! $direction->getTranslate('short_description') !!}>
-                            <a class="button button--white" href="javascript:void(0)">{{ trans('base.order') }}</a>
+                            <a class="button button--white" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0)">{{ trans('base.order') }}</a>
                         </div>
 
                     </div>
@@ -195,7 +195,7 @@
                 <div class="presenBox">
                     {!! $products[0]->getTranslate('title') !!}
                     {!! $products[0]->getTranslate('short_description') !!}
-                    <a class="button" href="javascript:void(0)">{{ trans('base.detale') }}</a>
+                    <a class="button" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0)">{{ trans('base.detale') }}</a>
                 </div>
 
             </div>

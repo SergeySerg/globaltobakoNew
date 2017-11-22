@@ -297,11 +297,14 @@ boardsSlider.init = function(){
 /**********call-back**************/
 $( document ).ready(function() {
     $('#submit-send').on('click', function (event) {
-        //console.info(' Î≥Í');
+        event.preventDefault();
+        //console.info('–ö–ª—ñ–∫');
         $('#submit-send').attr('disabled', true);
         var data = new FormData($('form#callback')[0]);
+        var url = $( "input[name=url]" ).val();
+        console.info(url);
         $.ajax({
-            url: '',
+            url: url,
             method: 'POST',
             processData: false,
             contentType: false,

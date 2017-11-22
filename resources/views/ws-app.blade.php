@@ -28,7 +28,7 @@
 
 
 	<link href="{{ asset('/css/plugins/sweetalert.css') }}" rel="stylesheet">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
 
 </head>
@@ -129,6 +129,33 @@
 	</div>
 
 </footer>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">{{ trans('base.contacts') }}</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form class="contForm" id="callback">
+					<div class="contForm__cont">
+						<div class="contForm__box"><input  required type=text name="name" placeholder="{{ trans('base.name') }}" /></div>
+						<div class="contForm__box"><input type="email" required name="email" placeholder="{{ trans('base.email') }}" /></div>
+						<div class="contForm__box"><textarea required name="text" placeholder="{{ trans('base.text') }}"></textarea></div>
+						<input type="hidden" name="_token" value="{{csrf_token()}}"/>
+						<input type="hidden" name="url" value="/{{ App::getLocale() }}/{{ $type }}"/>
+					</div>
+
+					<button id="submit-send" class="button">{{ trans('base.send') }}</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
 <!-- END .footer -->
 {{--Файл переводов--}}
 <script>
@@ -144,6 +171,9 @@
 <script src="{{ asset('/js/frontend/jquery.min.js') }}"></script>
 <script src="{{ asset('/js/frontend/libs.min.js') }}"></script>
 <script src="{{ asset('/js/frontend/main.js') }}"></script>
+{{--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 {{-- /JS --}}
 
