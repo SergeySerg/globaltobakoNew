@@ -14,7 +14,7 @@
 
                 <div class="presenBox">
                     {!! $about[0]->getTranslate('title') !!}
-                    {!! $about[0]->getTranslate('short_description') !!}
+                    {!! $about[0]->getTranslate('description') !!}
                 </div>
 
             </div>
@@ -119,8 +119,7 @@
     <div class="container">
 
         <div class="infoText__cont">
-            <p>Компанія “GLOBAL TOBACCO” співпрацює з найбільшими компаніями різних країн і їх представництвами в Україні та має величезний досвід комплексного обслуговування підприємств. Компанія “GLOBAL TOBACCO” пропонує співпрацю на спеціальних умовах для гуртових компаній.</p>
-        </div>
+            {!! $about[0]->getTranslate('short_description') !!}        </div>
 
     </div>
 
@@ -139,8 +138,8 @@
 
         <div class="presenBox presenBox--white">
             {!! $about[0]->getTranslate('title') !!}
-            {!! $about[0]->getTranslate('description') !!}
-            <a class="button" href="javascript:void(0)">{{ trans('base.detale') }}</a>
+            {!! $about[0]->getTranslate('short_description') !!}
+            <a class="button" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0)">{{ trans('base.detale') }}</a>
         </div>
 
     </div>

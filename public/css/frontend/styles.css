@@ -553,7 +553,7 @@ input.button {
 }
 .header__address ul .address-phone {
   font-size: 14px;
-  color: #c1a871;
+  color: #c1a871 !important;
   font-weight: 700;
   margin-bottom: 10px;
 }
@@ -2719,7 +2719,7 @@ input.button {
 .feedback .fb-phone {
   font-size: 14px;
   font-weight: 700;
-  color: #c1a871;
+  color: #c1a871 !important;
   white-space: nowrap;
 }
 .feedback .fb-email {
