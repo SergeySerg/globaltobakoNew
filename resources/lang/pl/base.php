@@ -26,6 +26,8 @@ return [
 	'more_detale' => 'Dowiedz się więcej',
 	"text" => "Tekst wiadomości",
 	'require_field' => "Wypełnij wszystkie pola",
+	"all_text" => "Wypełnij formularz zamówienia",
+
 
 	/* Script Contact*/
 	'success_send_contact' => 'Twoja aplikacja została pomyślnie wysłana!',

@@ -23,6 +23,7 @@ class BackendInit {
 
 	public function handle($request, Closure $next)
 	{
+		$admin_categories_all = Category::all();
 		$admin_categories = Category::where('parent_id',0)
 			->orderBy('priority','desc')
 			->get();
@@ -32,6 +33,8 @@ class BackendInit {
 		view()->share('version', config('app.version'));
 		view()->share('url', $url);
 		view()->share('admin_categories', $admin_categories);
+		view()->share('admin_categories_all', $admin_categories_all);
+
 		return $next($request);
 	}
 

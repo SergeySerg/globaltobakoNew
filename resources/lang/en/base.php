@@ -26,6 +26,7 @@ return [
 	'more_detale' => 'Learn more',
 	"text" => "Message text",
 	'require_field' => "Fill in all the fields",
+	"all_text" => "Fill in the order form",
 
 	/* Script Contact*/
 	'success_send_contact' => 'Your application was successfully sent!',

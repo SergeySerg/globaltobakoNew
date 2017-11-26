@@ -331,6 +331,53 @@ $( document ).ready(function() {
         event.preventDefault();
     });
     /**********END call-back**************/
+    /* Set params for form*/
+    $('.order').on('click', function (event) {
+        var id = $(this).attr('data-id');
+        $( "input[name=id]" ).val( id );
+        var goodName = $(this).attr('data-name');
+        $( "input[name=goodName]" ).val( goodName );
+
+    })
+    /*Set params for form*/
+/**********call-back**************/
+
+    $('#submit-order').on('click', function (event) {
+        event.preventDefault();
+
+        $('#submit-order').attr('disabled', true);
+        var data = new FormData($('form#callback-order')[0]);
+
+        var lang = $( "input[name=lang]" ).val();
+        //console.info(url);
+        $.ajax({
+            url: lang + '/callback',
+            method: 'POST',
+            processData: false,
+            contentType: false,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                if (data.success) {
+                    //alert('OK');
+                    swal(trans['base.success'], "", "success");
+                    jQuery("#callback-order").trigger("reset");
+                    $("#submit-send").attr('disabled', false);
+                }
+                else {
+                    swal(trans['base.error'], data.message, "error");
+                    $("#submit-send").attr('disabled', false);
+                }
+            },
+            error: function (data) {
+                swal(trans['base.error']);
+                $("#submit-send").attr('disabled', false);
+            }
+
+        });
+        event.preventDefault();
+    });
+    /**********END call-back**************/
 });
 
 

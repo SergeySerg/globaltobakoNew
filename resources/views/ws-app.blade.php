@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="{{ App::getLocale() }}>
+<html lang="{{ App::getLocale() }}">
 <head>
 
 <meta charset="utf-8">
@@ -20,7 +20,7 @@
 <link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/libs.min.css') }}" />
 <link media="all" rel="stylesheet" type="text/css" href="{{ asset('/css/frontend/styles.css') }}?ver={{ $version }}" />
 
-</head>
+
 	<link rel="shortcut icon" href="{{ asset('/img/favicon/favicon.ico') }}" type="image/x-icon">
 	<link rel="apple-touch-icon" href="{{ asset('/img/favicon/apple-touch-icon.png') }}">
 	<link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicon/apple-touch-icon-72x72.png') }}">

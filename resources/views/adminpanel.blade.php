@@ -172,9 +172,26 @@
                                 </li>
                                 @foreach($admin_category->category_children as $admin_category_children)
                                 <li @if(Request::is('*/'.$admin_category_children->link.'') || Request::is('*/'.$admin_category_children->link.'/*')) class="active" @endif>
-                                    <a href="{{ $url }}/articles/{{ $admin_category_children->link }}" @if($admin_category_children->active == 0) style="color:#e4e1e1" @endif>
+                                    <a href="{{ $url }}/articles/{{ $admin_category_children->link }}" @if($admin_category_children->active == 0) style="color:#e4e1e1" @endif @if($admin_category_children->category_children->count()) class="dropdown-toggle" @endif>
                                         {{ $admin_category_children->getTranslate('title') }}
+                                        @if($admin_category->category_children->count())
+                                            <b class="arrow icon-angle-down"></b>
+                                        @endif
                                     </a>
+                                    <ul class="submenu">
+                                        <li>
+                                            <a href="{{ $url }}/articles/{{ $admin_category_children->link }}" @if($admin_category_children->active == 0) style="color:#e4e1e1" @endif >
+                                                {{ $admin_category_children->getTranslate('title') }}
+                                            </a>
+                                        </li>
+                                        @foreach($admin_category_children->category_children as $admin_category_children_children)
+                                            <li @if(Request::is('*/'.$admin_category_children_children->link.'') || Request::is('*/'.$admin_category_children_children->link.'/*')) class="active" @endif>
+                                                <a href="{{ $url }}/articles/{{ $admin_category_children_children->link }}" @if($admin_category_children_children->active == 0) style="color:#e4e1e1" @endif>
+                                                    {{ $admin_category_children_children->getTranslate('title') }}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </li>
                                 @endforeach
                             </ul>

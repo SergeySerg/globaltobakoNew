@@ -64,34 +64,6 @@
 
              </div>
 
-            {{--<div class="container__row">
-
-                <div class="container__col">
-
-                    <div class="prodBox">
-                        <div class="prodBox__substrate"><img src="pictures/substrate/img-1.jpg" alt="img" /></div>
-                        <h3>GLOBAL TOBACCO</h3>
-                        <h4>INTERNATIONAL</h4>
-                        <img src="pictures/production/img-1.png" alt="img" />
-                        <p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
-                    </div>
-
-                </div>
-
-                <div class="container__col">
-
-                    <div class="prodBox">
-                        <div class="prodBox__substrate"><img src="pictures/substrate/img-2.jpg" alt="img" /></div>
-                        <h3>GLOBAL TOBACCO</h3>
-                        <h4>INTERNATIONAL</h4>
-                        <img src="pictures/production/img-1.png" alt="img" />
-                        <p>Український виробник тютюнових виробів. Компанія започаткована у 2007 році на базі Монастириської тютюнової фабрики.</p>
-                    </div>
-
-                </div>
-
-            </div>--}}
-
         </div>
 
     </div>
@@ -99,7 +71,7 @@
 
 
 
-    @foreach($directions as $direction)
+    @foreach($goods as $key => $good)
          <!-- .boards -->
         <div class="boards">
 
@@ -107,16 +79,16 @@
 
             <div class="container">
 
-                <span class="fonText">01</span>
+                <span class="fonText">0{{ $key+1 }}</span>
 
                 <div class="container__row">
 
                     <div class="container__col">
 
                         <div class="presenBox presenBox--white">
-                            {!! $direction->getTranslate('title') !!}
-                            {!! $direction->getTranslate('short_description') !!}>
-                            <a class="button button--white" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0)">{{ trans('base.order') }}</a>
+                            {!! $good->getTranslate('title') !!}
+                            {!! $good->getTranslate('short_description') !!}
+                            <a class="button button--white order" data-toggle="modal" data-name="{{ $good->getTranslate('title')}}" data-id="{{ $good->id }}" data-target="#exampleModalForGoods" href="javascript:void(0)">{{ trans('base.order') }}</a>
                         </div>
 
                     </div>
@@ -124,7 +96,7 @@
                     <div class="container__col">
 
                         <div class="boardsSlider">
-                            @foreach($direction -> getImages() as $imgDirectionProduct)
+                            @foreach($good -> getImages() as $imgDirectionProduct)
                                 <div class="boardsSlider__box"><span><a href="javascript:void(0)"><img src="/{{ $imgDirectionProduct['min'] }}" alt="img" /></a></span></div>
                             @endforeach
 
@@ -138,79 +110,76 @@
 
         </div>
         <!-- END .boards -->
-    <!-- .inform -->
-    <div class="inform inform--indentLess">
+    @if(count($good->article_children) !== 0)
+        <!-- .inform -->
+        <div class="inform inform--indentLess">
 
-        <div class="container">
+            <div class="container">
 
-            <div class="title"><h2>{{ $categories_data['factors']->getTranslate('title') ? $categories_data['factors']->getTranslate('title') : 'ДЕКІЛЬКА ФАКТОРІВ' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
+                <div class="title"><h2>{{ $categories_data['factors']->getTranslate('title') ? $categories_data['factors']->getTranslate('title') : 'ДЕКІЛЬКА ФАКТОРІВ' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
 
-            <div class="container__row">
+                <div class="container__row">
+                    @foreach( $good->article_children as $factor)
+                        <div class="container__col">
+
+                            <div class="inform__box">
+                                <div class="inform__icon inform__icon--people"></div>
+                                <h3>{{ $factor->getTranslate('title')}}</h3>
+                                {!!  $factor->getTranslate('short_description') !!}
+                            </div>
+
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
+
+            <div class="informSlider">
                 @foreach( $direction->article_children as $factor)
-                    <div class="container__col">
-
+                    <div class="informSlider__box">
                         <div class="inform__box">
                             <div class="inform__icon inform__icon--people"></div>
                             <h3>{{ $factor->getTranslate('title')}}</h3>
                             {!!  $factor->getTranslate('short_description') !!}
                         </div>
-
                     </div>
                 @endforeach
             </div>
 
         </div>
-
-        <div class="informSlider">
-            @foreach( $direction->article_children as $factor)
-                <div class="informSlider__box">
-                    <div class="inform__box">
-                        <div class="inform__icon inform__icon--people"></div>
-                        <h3>{{ $factor->getTranslate('title')}}</h3>
-                        {!!  $factor->getTranslate('short_description') !!}
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-    </div>
-    <!-- END .inform -->
-
+        <!-- END .inform -->
+    @endif
     @endforeach
 @endif
-
-<!-- .logos -->
-<div class="logos">
-
-    <!-- <div class="inclined inclined--top inclined--colorWhite"></div> -->
-
-    <div class="container">
-
-        <span class="fonText">02</span>
-
-        <div class="container__row">
-
-            <div class="container__col">
-
-                <div class="presenBox">
-                    {!! $products[0]->getTranslate('title') !!}
-                    {!! $products[0]->getTranslate('short_description') !!}
-                    <a class="button" data-toggle="modal" data-target="#exampleModal" href="javascript:void(0)">{{ trans('base.detale') }}</a>
-                </div>
-
+            <!-- Modal for Goods -->
+<div class="modal fade" id="exampleModalForGoods" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ trans('base.all_text') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <form class="contForm" id="callback-order">
+                    <div class="contForm__cont">
+                        <div class="contForm__box"><input  required type=text name="name" placeholder="{{ trans('base.name') }}" /></div>
+                        <div class="contForm__box"><input type="email" required name="email" placeholder="{{ trans('base.email') }}" /></div>
+                        <div class="contForm__box"><textarea required name="text" placeholder="{{ trans('base.text') }}"></textarea></div>
+                        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                        <input type="hidden" name="lang" value="/{{ App::getLocale() }}"/>
+                        <input type="hidden" name="id" value=""/>
+                        <input type="hidden" name="goodName" value=""/>
 
-            <div class="container__col">
+                    </div>
 
-                <div class="logos-img"><a href="javascript:void(0)"><img src="{{ asset('pictures/logos/log-1.png') }}" alt="Logo" /></a></div>
-
+                    <button id="submit-order" class="button">{{ trans('base.send') }}</button>
+                </form>
             </div>
 
         </div>
-
     </div>
-
 </div>
-<!-- END .logos -->
 
 @endsection

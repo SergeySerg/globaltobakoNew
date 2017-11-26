@@ -132,7 +132,42 @@ class ArticleController extends Controller {
 			//Send item on admin email address
 			Mail::send('emails.contact', $all, function($message){
 				$email = getSetting('config.email');
-				$message->to($email, 'Globaltobako')->subject('Сообщение с сайта "Globaltobako"');
+				$message->to($email, 'Globaltobacco')->subject('Сообщение с сайта "Globaltobacco"');
+			});
+			return response()->json([
+				'success' => 'true'
+			]);
+		}
+	}
+	public function callback(Request $request, $lang)
+	{
+		//dd('callback');
+		if ($request ->isMethod('post')){
+			/*get [] from request*/
+			$all = $request->all();
+
+			/*make rules for validation*/
+			$rules = [
+				'name' => 'required|max:50',
+				'email' => 'required|email',
+				'text' => 'required|max:600'
+			];
+
+			/*validation [] according to rules*/
+			$validator = Validator::make($all, $rules);
+
+			/*send error message after validation*/
+			if ($validator->fails()) {
+				return response()->json(array(
+					'success' => false,
+					'message' => $validator->messages()->first()
+				));
+			}
+
+			//Send item on admin email address
+			Mail::send('emails.callback', $all, function($message){
+				$email = getSetting('config.email');
+				$message->to($email, 'Globaltobacco')->subject('Заказ с сайта "Globaltobacco"');
 			});
 			return response()->json([
 				'success' => 'true'

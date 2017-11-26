@@ -11,7 +11,7 @@
 |
 */
 Route::get('home', 'HomeController@index');//Для відображення результата після логування
-
+Route::post('/{lang}/callback', ['uses' => 'Frontend\ArticleController@callback','as' => 'callback']);//Обработчик Обратной связи при заказе товара
 /*Auth group routes*/
 Route::controllers([
 	/*'auth' => 'Auth\AuthController',*/

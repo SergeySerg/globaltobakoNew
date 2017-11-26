@@ -236,7 +236,7 @@
                                 <div class="controls">
                                     <select name="parent_id" id="form-field-select-1">
                                         <option value="">
-                                            @foreach($admin_categories as $category_item)
+                                            @foreach($admin_categories_all as $category_item)
                                                 </option><option value="{{ $category_item->id}}" @if(isset($category_parent) && ($category_parent  == $category_item->id)) selected="selected" @endif>{{ $category_item->getTranslate('title') }}
                                             @endforeach
                                         </option>
@@ -389,7 +389,7 @@
                         </select>
                     </div>
                 </div>--}}
-                {{--<div class="hr hr-18 dotted hr-double"></div>
+                <div class="hr hr-18 dotted hr-double"></div>
                 <h4 class="pink">
                     <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
                     <a href="#modal-table" role="button" id="base" class="green" data-toggle="modal"> {{ trans('backend.base_attr') }} </a>
@@ -401,7 +401,7 @@
                     <i class="icon-hand-right icon-animated-hand-pointer blue"></i>
                     <a href="#modal-table-attributes" role="button" class="green" data-toggle="modal"> {{ trans('backend.attributes') }} </a>
                 </h4>
-                <div class="hr hr-18 dotted hr-double"></div>--}}
+                <div class="hr hr-18 dotted hr-double"></div>
                 <input type="hidden" id="fields" name="fields" @if(isset($admin_category->fields)) value='{{ $admin_category->fields }}'@else value="" @endif/>
                 <input type="hidden" name="img_status" value= 'true'/>
                 <input type="hidden" name="_token" value="{{csrf_token()}}"/>

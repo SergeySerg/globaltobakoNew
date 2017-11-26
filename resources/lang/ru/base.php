@@ -27,6 +27,7 @@ return [
 	'more_detale' => 'Узнать больше',
 	"text" => "Текст сообщения",
 	'require_field' => "Заполните все поля",
+	"all_text" => "Заполните форму заказа",
 
 
 	/* Script Contact*/
