@@ -38,7 +38,7 @@
 <!-- END .sliderPresent -->
 
 
-@if(isset($advantages) AND count($advantages) !== 0 AND $categories_data['advantages']->active == 1)
+@if(isset($directions) AND count($directions) !== 0 AND $categories_data['directions']->active == 1)
 
     <!-- .production-main -->
     <div class="production-main production-main--white">
@@ -68,89 +68,92 @@
 
     </div>
     <!-- END .production-main -->
-
+@endif
 
 
     @foreach($goods as $key => $good)
-         <!-- .boards -->
-        <div class="boards">
+        @if($good->article_parent['active'] == 1  OR !$good->article_parent)
+             <!-- .boards -->
+            <div class="boards">
 
-            <div class="inclined inclined--bottomArrow inclined--colorWhite"></div>
+                <div class="inclined inclined--bottomArrow inclined--colorWhite"></div>
 
-            <div class="container">
+                <div class="container">
 
-                <span class="fonText">0{{ $key+1 }}</span>
+                    <span class="fonText">0{{ $key+1 }}</span>
 
-                <div class="container__row">
+                    <div class="container__row">
 
-                    <div class="container__col">
-
-                        <div class="presenBox presenBox--white">
-                            {!! $good->getTranslate('title') !!}
-                            {!! $good->getTranslate('short_description') !!}
-                            <a class="button button--white order" data-toggle="modal" data-name="{{ $good->getTranslate('title')}}" data-id="{{ $good->id }}" data-target="#exampleModalForGoods" href="javascript:void(0)">{{ trans('base.order') }}</a>
-                        </div>
-
-                    </div>
-
-                    <div class="container__col">
-
-                        <div class="boardsSlider">
-                            @foreach($good -> getImages() as $imgDirectionProduct)
-                                <div class="boardsSlider__box"><span><a href="javascript:void(0)"><img src="/{{ $imgDirectionProduct['min'] }}" alt="img" /></a></span></div>
-                            @endforeach
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <!-- END .boards -->
-    @if(count($good->article_children) !== 0)
-        <!-- .inform -->
-        <div class="inform inform--indentLess">
-
-            <div class="container">
-
-                <div class="title"><h2>{{ $categories_data['factors']->getTranslate('title') ? $categories_data['factors']->getTranslate('title') : 'ƒ≈ ≤À‹ ¿ ‘¿ “Œ–≤¬' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
-
-                <div class="container__row">
-                    @foreach( $good->article_children as $factor)
                         <div class="container__col">
 
-                            <div class="inform__box">
-                                <div class="inform__icon inform__icon--people"></div>
-                                <h3>{{ $factor->getTranslate('title')}}</h3>
-                                {!!  $factor->getTranslate('short_description') !!}
+                            <div class="presenBox presenBox--white">
+                                {!! $good->getTranslate('title') !!}
+                                {!! $good->getTranslate('short_description') !!}
+                                <a class="button button--white order" data-toggle="modal" data-name="{{ $good->getTranslate('title')}}" data-id="{{ $good->id }}" data-target="#exampleModalForGoods" href="javascript:void(0)">{{ trans('base.order') }}</a>
                             </div>
 
                         </div>
-                    @endforeach
+
+                        <div class="container__col">
+
+                            <div class="boardsSlider">
+                                @foreach($good -> getImages() as $imgDirectionProduct)
+                                    <div class="boardsSlider__box"><span><a href="javascript:void(0)"><img src="/{{ $imgDirectionProduct['min'] }}" alt="img" /></a></span></div>
+                                @endforeach
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
+            <!-- END .boards -->
 
-            <div class="informSlider">
-                @foreach( $direction->article_children as $factor)
-                    <div class="informSlider__box">
-                        <div class="inform__box">
-                            <div class="inform__icon inform__icon--people"></div>
-                            <h3>{{ $factor->getTranslate('title')}}</h3>
-                            {!!  $factor->getTranslate('short_description') !!}
+            @if(count($good->article_children) !== 0)
+                <!-- .inform -->
+                <div class="inform inform--indentLess">
+
+                    <div class="container">
+
+                        <div class="title"><h2>{{ $categories_data['factors']->getTranslate('title') ? $categories_data['factors']->getTranslate('title') : 'ƒ≈ ≤À‹ ¿ ‘¿ “Œ–≤¬' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
+
+                        <div class="container__row">
+                            @foreach( $good->article_children as $factor)
+                                <div class="container__col">
+
+                                    <div class="inform__box">
+                                        <div class="inform__icon inform__icon--people"></div>
+                                        <h3>{{ $factor->getTranslate('title')}}</h3>
+                                        {!!  $factor->getTranslate('short_description') !!}
+                                    </div>
+
+                                </div>
+                            @endforeach
                         </div>
-                    </div>
-                @endforeach
-            </div>
 
-        </div>
-        <!-- END .inform -->
-    @endif
+                    </div>
+
+                    <div class="informSlider">
+                        @foreach( $direction->article_children as $factor)
+                            <div class="informSlider__box">
+                                <div class="inform__box">
+                                    <div class="inform__icon inform__icon--people"></div>
+                                    <h3>{{ $factor->getTranslate('title')}}</h3>
+                                    {!!  $factor->getTranslate('short_description') !!}
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                </div>
+                <!-- END .inform -->
+            @endif
+        @endif
     @endforeach
-@endif
+
             <!-- Modal for Goods -->
 <div class="modal fade" id="exampleModalForGoods" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

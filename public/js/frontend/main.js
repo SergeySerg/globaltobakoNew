@@ -183,13 +183,16 @@ disposition.mobile = function(){
 /* boards -------------------------------------*/
 var boards = {};
 boards.desktop = function(){
-     $('.boards .presenBox').append($('.boards .container__col:nth-child(2) .button'));
+    $('.boards').each(function(){
+        $(this).find('.presenBox').append($(this).find('.container__col:nth-child(2) .button'));
+    });
 };
 
 boards.mobile = function(){
-     $('.boards .container__col:nth-child(2)').append($('.boards .presenBox .button'));
+    $('.boards').each(function(){
+        $(this).find('.container__col:nth-child(2)').append($(this).find('.presenBox .button'));
+    });
 };
-
 
 
 
