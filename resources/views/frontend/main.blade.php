@@ -101,14 +101,14 @@
 
                 @foreach($directions as $direction)
                     <div class="container__col">
-
-                        <div class="prodBox">
-                            <div class="prodBox__substrate"><img src="{{ $direction->getAttributeTranslate('Фон') ? $direction->getAttributeTranslate('Фон') : asset("pictures/substrate/img-1.jpg") }}" alt="GLOBAL TOBACCO" /></div>
-                            {!! $direction->getTranslate('title') !!}
-                            <img src="{{ $direction->getAttributeTranslate('Картинка продукту') ? $direction->getAttributeTranslate('Картинка продукту') : asset("pictures/production/img-1.png") }}" alt="GLOBAL TOBACCO" />
-                            {!! $direction->getTranslate('short_description') !!}
-                        </div>
-
+                        <a href="/{{ App::getLocale() }}/products" style="text-decoration: none">
+                            <div class="prodBox">
+                                <div class="prodBox__substrate"><img src="{{ $direction->getAttributeTranslate('Фон') ? $direction->getAttributeTranslate('Фон') : asset("pictures/substrate/img-1.jpg") }}" alt="GLOBAL TOBACCO" /></div>
+                                {!! $direction->getTranslate('title') !!}
+                                <img src="{{ $direction->getAttributeTranslate('Картинка продукту') ? $direction->getAttributeTranslate('Картинка продукту') : asset("pictures/production/img-1.png") }}" alt="GLOBAL TOBACCO" />
+                                {!! $direction->getTranslate('short_description') !!}
+                            </div>
+                        </a>
                     </div>
                 @endforeach
 

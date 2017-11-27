@@ -56,7 +56,7 @@
                     <div class="container__col">
 
                         <div class="inform__box">
-                            <div class="inform__icon inform__icon--people"></div>
+                            <div class="inform__icon" style="background-image: url('{{ asset( $advantage->getAttributeTranslate('Іконка')) }}')"></div>
                             <h3> {{ $advantage->getTranslate('title') }}</h3>
                             {!! $advantage->getTranslate('short_description') !!}
                         </div>
@@ -73,9 +73,10 @@
             @foreach($advantages as $advantage)
                 <div class="informSlider__box">
                     <div class="inform__box">
-                        <div class="inform__icon inform__icon--people"></div>
+                        <div class="inform__icon" style="background-image: url('{{ asset( $advantage->getAttributeTranslate('Іконка')) }}')"></div>
                         <h3>{{ $advantage->getTranslate('title') }}</h3>
-                        {!! $advantage->getTranslate('short_description') !!}                    </div>
+                        {!! $advantage->getTranslate('short_description') !!}
+                    </div>
                 </div>
             @endforeach
         </div>

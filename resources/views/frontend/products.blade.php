@@ -7,7 +7,7 @@
 
     <div class="container">
 
-        <span class="fonText">{{ $categories_data[$type]->getTranslate('title') ? $categories_data[$type]->getTranslate('title') : 'ПРОДУКЦІЯ' }}</span>
+        <span class="fonText">{{ $categories_data[$type]->getTranslate('title') ? $categories_data[$type]->getTranslate('title') : 'пїЅпїЅпїЅпїЅпїЅпїЅЦІпїЅ' }}</span>
 
         <div class="container__row">
 
@@ -45,7 +45,7 @@
 
         <div class="container">
 
-            <div class="title"><h2>{{ $categories_data['directions']->getTranslate('title') ? $categories_data['directions']->getTranslate('title') : 'Напрямки виробництва' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
+            <div class="title"><h2>{{ $categories_data['directions']->getTranslate('title') ? $categories_data['directions']->getTranslate('title') : 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
 
             <div class="container__row">
 
@@ -53,9 +53,9 @@
                     <div class="container__col">
 
                         <div class="prodBox">
-                            <div class="prodBox__substrate"><img src="{{ $direction->getAttributeTranslate('Фон') ? $direction->getAttributeTranslate('Фон') : asset("pictures/substrate/img-1.jpg") }}" alt="GLOBAL TOBACCO" /></div>
+                            <div class="prodBox__substrate"><img src="{{ $direction->getAttributeTranslate('пїЅпїЅпїЅ') ? $direction->getAttributeTranslate('пїЅпїЅпїЅ') : asset("pictures/substrate/img-1.jpg") }}" alt="GLOBAL TOBACCO" /></div>
                             {!! $direction->getTranslate('title') !!}
-                            <img src="{{ $direction->getAttributeTranslate('Картинка продукту') ? $direction->getAttributeTranslate('Картинка продукту') : asset("pictures/production/img-1.png") }}" alt="GLOBAL TOBACCO" />
+                            <img src="{{ $direction->getAttributeTranslate('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ') ? $direction->getAttributeTranslate('пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ') : asset("pictures/production/img-1.png") }}" alt="GLOBAL TOBACCO" />
                             {!! $direction->getTranslate('short_description') !!}
                         </div>
 
@@ -87,7 +87,9 @@
                         <div class="container__col">
 
                             <div class="presenBox presenBox--white">
-                                {!! $good->getTranslate('title') !!}
+                                <h2>
+                                    {!! $good->getTranslate('title') !!}
+                                </h2>
                                 {!! $good->getTranslate('short_description') !!}
                                 <a class="button button--white order" data-toggle="modal" data-name="{{ $good->getTranslate('title')}}" data-id="{{ $good->id }}" data-target="#exampleModalForGoods" href="javascript:void(0)">{{ trans('base.order') }}</a>
                             </div>
@@ -118,14 +120,14 @@
 
                     <div class="container">
 
-                        <div class="title"><h2>{{ $categories_data['factors']->getTranslate('title') ? $categories_data['factors']->getTranslate('title') : 'ДЕКІЛЬКА ФАКТОРІВ' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
+                        <div class="title"><h2>{{ $categories_data['factors']->getTranslate('title') ? $categories_data['factors']->getTranslate('title') : 'пїЅпїЅКІпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅРІпїЅ' }}{{--<span>{{ trans('base.directions') }}</span>--}}</h2></div>
 
                         <div class="container__row">
                             @foreach( $good->article_children as $factor)
                                 <div class="container__col">
 
                                     <div class="inform__box">
-                                        <div class="inform__icon inform__icon--people"></div>
+                                        <div class="inform__icon" style="background-image: url('{{ asset( $factor->getAttributeTranslate('Р†РєРѕРЅРєР°')) }}')"></div>
                                         <h3>{{ $factor->getTranslate('title')}}</h3>
                                         {!!  $factor->getTranslate('short_description') !!}
                                     </div>
@@ -137,10 +139,10 @@
                     </div>
 
                     <div class="informSlider">
-                        @foreach( $direction->article_children as $factor)
+                        @foreach( $good->article_children as $factor)
                             <div class="informSlider__box">
                                 <div class="inform__box">
-                                    <div class="inform__icon inform__icon--people"></div>
+                                    <div class="inform__icon" style="background-image: url('{{ asset( $factor->getAttributeTranslate('Р†РєРѕРЅРєР°')) }}')"></div>
                                     <h3>{{ $factor->getTranslate('title')}}</h3>
                                     {!!  $factor->getTranslate('short_description') !!}
                                 </div>
